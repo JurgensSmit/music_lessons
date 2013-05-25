@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, 
-  			      	:about, :image_url, :gplus_url, :rate, :location, :user_type,
-                           :provider, :uid, :refresh_token, :access_token, :expires
+                           :provider, :uid, :refresh_token, :access_token, :expires,
                            :about, :image_url, :gplus_url, :rate, :location, :user_type, :tag_list
 
   validates_uniqueness_of :uid, :scope => :provider
