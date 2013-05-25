@@ -1,3 +1,74 @@
-@import "bootstrap";
+@import "bootstrap-flatly";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+.full-width {
+	min-width: 95%;
+	max-width: 95%;
+}
+
+.content {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container {
+	max-width: 750px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+input, textarea, .uneditable-input {
+	width: 320px;
+}
+
+img.img-portrait {
+	max-width: 250px;
+	max-height: 250px;
+	border-radius: 50%;
+	margin: 25px;
+}
+
+img.img-project {
+	max-width: 250px;
+	max-height: 250px;
+	margin: 15px;
+	border-radius: 10%;
+}
+
+img.img-small {
+	max-height: 34px; 
+	max-width: 34px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-right: 10px;
+}
+
+a [class^="icon-twitter"] {
+	color: #4099FF;
+}
+
+a [class^="icon-github"] {
+	color: #333333;
+}
+
+a [class^="icon-linkedin"] {
+	color: #4875B4;
+}
+
+a [class^="icon-comments-alt"] {
+	color: #333333;
+}
+
+a:hover, a:visited, a:link, a:active {
+	text-decoration: none;
+}
+
+a [class^="icon-"], a [class*=" icon-"] {
+	margin: 6px;
+}
+
+body {
+	margin-bottom: 40px;
+}

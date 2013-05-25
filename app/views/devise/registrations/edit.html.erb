@@ -2,8 +2,17 @@
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
   <%= f.error_notification %>
   <%= display_base_errors resource %>
-  <%= f.input :name, :autofocus => true %>
+  <% unless @user.image_url.blank? %><%= image_tag @user.image_url, :class => "img-portrait" %><br><br><% end %>
+  <%= f.input :image_url, as: :file, label: "Profile picture" %>
+  <%= f.input :user_type, as: :radio_buttons, label: "Account type", collection: [ 'Student', 'Teacher' ] %>
+  <%= f.input :name, :autofocus => true, label: "Full name" %>
+  <%= f.input :about, input_html: { rows: 8 }, placeholder: "e.g. I love playing Blues on the guitar and I'm inspired by Jimi Hendrix" %>
+  <%= f.input :location %>
   <%= f.input :email, :required => true %>
+  <%= f.input :gplus_url, label: 'Google+ URL', placeholder: "e.g. https://plus.google.com/117698348367619010873/posts" %>
+  <% if @user.user_type == 'teacher' %>
+	  <%= f.input :rate %>
+  <% end %>
   <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
   <%= f.input :password_confirmation, :required => false %>
   <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
