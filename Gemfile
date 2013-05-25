@@ -47,3 +47,7 @@ gem "carrierwave"
 gem 'omniauth-google-oauth2'
 gem 'omniauth'
 gem "acts-as-taggable-on"
+
+gem 'rails3-jquery-autocomplete'
+gem 'truncate_html'
+gem 'bootstrap-datetimepicker-rails'

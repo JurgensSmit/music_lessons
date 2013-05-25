@@ -1,4 +1,19 @@
 MusicLessons::Application.routes.draw do
+  
+  resources :messages do
+    get :autocomplete_user_name, :on => :collection
+    member do
+      post :remove_recipient
+      post :remove_sender
+    end
+  end
+
+  match '/inbox' => 'messages#index'
+  match '/sent' => 'messages#sent'
+  match '/trash' => 'messages#trash'
+  match '/admin' => 'admin#index'
+
+
   get 'tags/:tag', to: 'users#show', as: :tag
   
 
