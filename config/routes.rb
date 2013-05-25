@@ -13,6 +13,7 @@ MusicLessons::Application.routes.draw do
   match '/trash' => 'messages#trash'
   match '/admin' => 'admin#index'
 
+  match 'teacher_list' => 'teacher_list#index'
 
   get 'tags/:tag', to: 'users#show', as: :tag
   
@@ -22,7 +23,9 @@ MusicLessons::Application.routes.draw do
   end
   root :to => "home#index"
   devise_for :users
-  resources :users
+  resources :users do
+    resources :events
+  end
   match "/auth/google_login/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
 end
