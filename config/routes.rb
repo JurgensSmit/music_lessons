@@ -1,6 +1,7 @@
 MusicLessons::Application.routes.draw do
   
 
+  match 'teacher_list' => 'teacher_list#index'
 
   get 'tags/:tag', to: 'users#show', as: :tag
   
