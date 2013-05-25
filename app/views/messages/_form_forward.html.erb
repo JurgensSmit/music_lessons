@@ -1,0 +1,19 @@
+<%= simple_form_for(Message.new) do |f| %>
+  <div class="modal-body">
+    <div class="form-inputs">
+      <p>To</p>
+      <%= f.autocomplete_field :recipient_name, autocomplete_user_name_messages_path %>
+      <p>From: <%= link_to 'Me', current_user %></p>
+      <%= f.text_field :title, :value => "FWD: #{@message.title}" %>
+      <%= f.text_area :content, :autofocus => true, :value => "\n\nOriginal Sent #{@message.created_at.strftime("%H:%M, %d %b %Y")} by #{find_user_by_id(@message.sender_id).name}\n#{@message.content}", input_html: { :rows => 8 } %>
+      <%= f.hidden_field 'sender_id', :value => current_user.id %>
+      <%= f.hidden_field 'read', :value => false %>
+      <%= f.hidden_field 'show_sender', :value => true %>
+      <%= f.hidden_field 'show_recipient', :value => true %>
+    </div>
+  </div>
+  <div class="modal-footer">
+      <%= f.button :submit, :class => "btn-primary", :value => "Send" %>
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  </div>
+<% end %>

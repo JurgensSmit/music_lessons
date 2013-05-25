@@ -14,12 +14,13 @@ class User < ActiveRecord::Base
                            :provider, :uid, :refresh_token, :access_token, :expires,
                            :about, :image_url, :gplus_url, :rate, :location, :user_type, :tag_list
 
-
   # validates_uniqueness_of :uid, :scope => :provider
 
   mount_uploader :image_url, AvatarUploader
 
   acts_as_taggable
   acts_as_taggable_on :tag_list
+
+  has_many :messages
   
 end
