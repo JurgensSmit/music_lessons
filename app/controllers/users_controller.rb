@@ -7,7 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if params[:tag]
+      @user = User.tagged_with(params[:tag])
+    else
+      @user = User.find(params[:id])
+    end
   end
   
   def update

@@ -1,4 +1,7 @@
 MusicLessons::Application.routes.draw do
+  get 'tags/:tag', to: 'users#show', as: :tag
+  
+
   authenticated :user do
     root :to => 'home#index'
   end

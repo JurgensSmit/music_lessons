@@ -9,8 +9,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, 
-  				:about, :image_url, :gplus_url, :rate, :location, :user_type
+  				:about, :image_url, :gplus_url, :rate, :location, :user_type, :tag_list
 
   mount_uploader :image_url, AvatarUploader
+
+  acts_as_taggable
   
 end
