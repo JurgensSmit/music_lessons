@@ -47,3 +47,4 @@ gem "carrierwave"
 gem 'omniauth-google-oauth2'
 gem 'omniauth'
 gem "acts-as-taggable-on"
+gem "simple_calendar"
