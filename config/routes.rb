@@ -1,6 +1,5 @@
 MusicLessons::Application.routes.draw do
 
-  get "landing_page/index"
   
   resources :messages do
     get :autocomplete_user_name, :on => :collection
@@ -15,6 +14,7 @@ MusicLessons::Application.routes.draw do
   match '/trash' => 'messages#trash'
   match '/admin' => 'admin#index'
 
+match "landing_page" => "landing_page#index"
 
 match 'teacher_list' => 'teacher_list#index'
 get 'tags/:tag', to: 'users#show', as: :tag
