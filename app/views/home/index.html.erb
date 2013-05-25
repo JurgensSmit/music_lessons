@@ -1,4 +1,33 @@
-
-<% @users.each do |user| %>
-	<%= render 'users/profile', :user => user %>
+<% unless user_signed_in? %>
+	<div class="row-fluid">
+	    <div class="offset1 span6">
+	        <h2>Learn music from anyone in the world.</h2>
+	    </div>
+	    <div class="span5">
+	    	<div class="btn-container">
+		    	<br><%= link_to 'Sign up now', new_user_registration_path, class: 'btn btn-large btn-info' %>
+		    </div>
+	    </div>
+	</div><br><br>
 <% end %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#students" data-toggle="tab"><h4>For Students</h4></a></li>
+  <li class=""><a href="#teachers" data-toggle="tab"><h4>For Teachers</h4></a></li>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane fade active in" id="students">
+  	<% @users.each do |user| %>
+		<% if user.user_type == 'Teacher' %>
+			<%= render 'users/profile', :user => user %>
+		<% end %>
+	<% end %>
+  </div>
+  <div class="tab-pane fade" id="teachers">
+
+  </div>
+</div>
+
+
+
