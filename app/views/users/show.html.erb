@@ -1,11 +1,2 @@
-<h3><%= @user.user_type %></h3>
-<p><%= @user.name %></p>
-<p><%= @user.location if @user.location %></p>
-<p><%= @user.about if @user.about %></p>
-<p>Email: <%= @user.email if @user.email %></p>
-<p><%= @user.about if @user.about %></p>
-<%= image_tag @user.image_url, :class => 'img-portrait' unless @user.image_url.blank? %>
-<p>GPlus: <%= @user.gplus_url if @user.gplus_url %></p>
-<% if @user.user_type == 'teacher' %>
-	<%= @user.rate if @user.rate %>
-<% end %>
+<%= render 'profile', :user => @user %>
+

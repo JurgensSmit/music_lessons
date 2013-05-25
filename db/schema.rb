@@ -11,54 +11,56 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525054724) do
+ActiveRecord::Schema.define(:version => 20130525054550) do
 
   create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string "name"
+    t.integer "resource_id"
+    t.string "resource_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
-  create_table "sessions", :force => true do |t|
-    t.string   "session_id", :null => false
-    t.text     "data"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "taggings", :force => true do |t|
+    t.integer "tag_id"
+    t.integer "taggable_id"
+    t.string "taggable_type"
+    t.integer "tagger_id"
+    t.string "tagger_type"
+    t.string "context", :limit => 128
+    t.datetime "created_at"
   end
 
-  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
+    t.string "email", :default => "", :null => false
+    t.string "encrypted_password", :default => "", :null => false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer "sign_in_count", :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "name"
-    t.text     "about"
-    t.string   "image_url"
-    t.string   "gplus_url"
-    t.decimal  "rate"
-    t.string   "location"
-    t.string   "user_type"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "refresh_token"
-    t.string   "access_token"
-    t.datetime "expires"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string "name"
+    t.text "about"
+    t.string "image_url"
+    t.string "gplus_url"
+    t.decimal "rate"
+    t.string "location"
+    t.string "user_type"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
