@@ -1,0 +1,17 @@
+<div class="row-fluid">
+	<div class="span5 text-center">
+		<%= image_tag user.image_url, :class => 'img-portrait' unless user.image_url.blank? %>
+	</div>
+	<div class="span7">
+		<h2><%= link_to user.name, user %></h2>
+		<p><%= user.user_type if user.user_type %> in <%= user.location if user.location %></p>
+		<p class="lead"><%= user.about %></p>
+		<% if user.user_type == 'Teacher' %>
+			<%= number_to_currency(user.rate) if user.rate %>
+		<% end %>
+		<div>
+			<%= link_to '<i class="icon-google-plus-sign icon-3x"></i>'.html_safe, url_with_protocol(user.gplus_url), target: "_blank" unless user.gplus_url.blank? %>
+		</div>
+	</div>
+</div>
+<hr>
