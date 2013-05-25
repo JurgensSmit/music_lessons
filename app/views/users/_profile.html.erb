@@ -7,8 +7,8 @@
 		<p><%= user.user_type if user.user_type %> in <%= user.location if user.location %></p>
 		<p class="lead"><%= user.about %></p>
 		<% if user.user_type == 'Teacher' %>
-			<%= number_to_currency(user.rate) if user.rate %> /Hour
-			 <p>Tags: <%= user.tag_list if user.tag_list %></p>
+			<p><%= number_to_currency(user.rate) if user.rate %> /Hour</p>
+			 <p>Tags: <%= raw user.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') if user.tag_list %></p>
 		<% end %>
 		<div>
 			<%= link_to '<i class="icon-google-plus-sign icon-3x"></i>'.html_safe, url_with_protocol(user.gplus_url), target: "_blank" unless user.gplus_url.blank? %>
