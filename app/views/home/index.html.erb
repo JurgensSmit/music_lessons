@@ -10,23 +10,39 @@
 	    </div>
 	</div><br><br>
 <% end %>
-
+<div class="text-center">
+	<%= form_tag teacher_list_path, :method => :get, :class => 'form-search search-bar' do %>
+	      <div class="input-append">
+	        <%= text_field_tag :search, params[:search], :class => 'search-query', :placeholder => 'Search e.g. "advanced jazz guitar"' %>
+	        <%= button_tag :class => "btn btn-primary" do %>
+	          <i class="icon-search icon-white"></i> &nbsp; Find teachers
+	        <% end %>
+	      </div>
+	<% end %>
+	<br><br>
+</div>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#students" data-toggle="tab"><h4>For Students</h4></a></li>
   <li class=""><a href="#teachers" data-toggle="tab"><h4>For Teachers</h4></a></li>
   </li>
 </ul>
 <div class="tab-content">
-  <div class="tab-pane fade active in" id="students">
-  	<% @users.each do |user| %>
-		<% if user.user_type == 'Teacher' %>
-			<%= render 'users/profile', :user => user %>
+	<div class="tab-pane fade active in" id="students">
+		<div class="container-narrow"><p class="lead">Find the right teacher for you, wherever they are in the world.  Here are just a few on Mizzy already: </p></div>
+		<% @users.each do |user| %>
+			<% if user.user_type == 'Teacher' %>
+				<%= render 'users/profile', :user => user %>
+			<% end %>
 		<% end %>
-	<% end %>
-  </div>
-  <div class="tab-pane fade" id="teachers">
-
-  </div>
+	</div>
+	<div class="tab-pane fade" id="teachers">
+		<div class="container-narrow"><p class="lead">Teach music to new students across the world.  Here are just a few on Mizzy already: </p></div>
+	  	<% @users.each do |user| %>
+			<% if user.user_type == 'Student' %>
+				<%= render 'users/profile', :user => user %>
+			<% end %>
+		<% end %>
+	</div>
 </div>
 
 

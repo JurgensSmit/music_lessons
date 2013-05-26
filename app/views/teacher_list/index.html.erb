@@ -1,0 +1,28 @@
+<% if params[:search] %>
+	<% @users.each do |user| %>
+		<% if user.tag_list != [] %>
+			<% user.tag_list.each do |tag| %>
+				<% if tag == params[:search] %>
+					<h4><%= link_to user.name, user %></h4>
+					<p>Tags:
+						<% user.tag_list.each do |tag| %>
+							<%= tag %>
+						<% end %>
+					</p>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% else %>
+	<% @users.each do |user| %>
+		<h4><%= link_to user.name, user %></h4>
+			<% if user.tag_list != [] %>
+			<p>Tags:
+				<% user.tag_list.each do |tag| %>
+					<%= tag %>
+				<% end %>
+			</p>
+		<% end %>
+	<% end %>
+<% end %>	
+

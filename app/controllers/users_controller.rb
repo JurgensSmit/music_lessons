@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
   Rails.logger.info("Client ID: #{ENV['OAUTH_CLIENT_ID']}")
-Rails.logger.info("Secrete key: #{ENV['OAUTH_CLIENT_SECRET']}")
+  Rails.logger.info("Secrete key: #{ENV['OAUTH_CLIENT_SECRET']}")
+
+
+  def calendar
+    @events = Event.all
+  end
+
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
@@ -9,6 +14,7 @@ Rails.logger.info("Secrete key: #{ENV['OAUTH_CLIENT_SECRET']}")
   end
 
   def show
+    @events = Event.all
     if params[:tag]
       @user = User.tagged_with(params[:tag])
     else

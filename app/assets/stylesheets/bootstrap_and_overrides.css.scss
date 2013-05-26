@@ -19,12 +19,10 @@ body { padding-top: 60px; }
 	margin-right: auto;
 }
 
-.btn-container {
-	margin-top: auto;
-	margin-bottom: auto;
-	padding-top: auto;
-	padding-bottom: auto;
-	vertical-align: middle;
+.container-narrow {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 input, textarea, .uneditable-input {
@@ -84,3 +82,34 @@ a [class^="icon-"], a [class*=" icon-"] {
 body {
 	margin-bottom: 40px;
 }
+
+/* MODALS (for personal messages) */
+.modal {
+	border-radius:0px;
+}
+.modal-header {
+	background-color:rgba(0,0,0,0);
+}
+.modal-header h3 {
+	color:#333;
+}
+.modal-body {
+	max-height:600px;
+}
+
+form {
+	margin:0;
+}
+
+textarea {
+  min-width: 95%;
+  height: 170px;
+}
+
+.rounded_corners {
+  border-radius: 10px;
+}
+
+.font_color_yellow {
+	color:#debb27;
+} 
