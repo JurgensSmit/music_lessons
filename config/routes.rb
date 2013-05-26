@@ -1,6 +1,9 @@
 MusicLessons::Application.routes.draw do
 
   
+  resources :payments
+
+
   resources :messages do
     get :autocomplete_user_name, :on => :collection
     member do
