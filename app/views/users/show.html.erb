@@ -1,13 +1,12 @@
 <%= render 'profile', :user => @user %>
 
 <% if @user.user_type == "Teacher" %>
-<div class="row">
-	<div class="span4 offset3">
-		<%= link_to "Book me now", new_user_event_path(@user), :class => 'btn' %>
-	</div>
-</div>
+
+	<%= link_to "Book a lesson", new_user_event_path(@user), :class => "btn btn-success" %>
+	<%= link_to "Email me", inbox_path, :class => "btn btn-warning" %>
+	<%= link_to "Pay for a lesson", inbox_path, :class => "btn btn-primary" %>
+
 	<%= calendar @events do |event| %>
 	  <div><%= link_to event.name, root_path %></div>
 	  <div><%= event.start_time.strftime("at %I:%M%p") %></div>
 	<% end %>
-<% end %>

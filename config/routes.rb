@@ -28,4 +28,5 @@ resources :events
 end
 match "/auth/google_login/callback" => "sessions#create"
 match "/signout" => "sessions#destroy", :as => :signout
+
 end
