@@ -2,13 +2,14 @@
 	<% @users.each do |user| %>
 		<% if user.tag_list != [] %>
 			<% user.tag_list.each do |tag| %>
-				<% if tag == params[:search] %>
+				<% if params[:search].include?(tag)%>
 					<h4><%= link_to user.name, user %></h4>
 					<p>Tags:
 						<% user.tag_list.each do |tag| %>
 							<%= tag %>
 						<% end %>
 					</p>
+				<% break %>
 				<% end %>
 			<% end %>
 		<% end %>

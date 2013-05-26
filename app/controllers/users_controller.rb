@@ -15,11 +15,13 @@ Rails.logger.info("Secrete key: #{ENV['OAUTH_CLIENT_SECRET']}")
   end
 
   def show
-    @events = Event.all
     if params[:tag]
       @user = User.tagged_with(params[:tag])
+      # @events = @user.events
+      @events = Event.all
     else
       @user = User.find(params[:id])
+      @events = Event.all
     end
   end
   
