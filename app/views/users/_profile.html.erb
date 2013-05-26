@@ -2,7 +2,7 @@
 	<div class="span5 text-center">
 		<%= image_tag user.image_url, :class => 'img-portrait' unless user.image_url.blank? %>
 	</div>
-	<div class="span7">
+	<div class="span4">
 		<h2><%= link_to user.name, user %></h2>
 		<p><%= user.user_type if user.user_type %> in <%= user.location if user.location %></p>
 		<p class="lead"><%= user.about %></p>
@@ -18,7 +18,7 @@
 		<img src="https://ssl.gstatic.com/s2/oz/images/stars/hangout/1/gplus-hangout-24x100-normal.png"
 		alt="Start a Hangout"
 		style="border:0;width:100px;height:24px;"/>
-</a>
+		</a>
 	</div>
 </div>
 <hr>
