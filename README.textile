@@ -1,3 +1,5 @@
+h1. Mizzy
+
 Jurgens Smit https://github.com/JurgensSmit
 David Evans https://github.com/davidjsevans
 Phillip Simmonds https://github.com/pjsim
@@ -7,7 +9,9 @@ Eric Hercog https://github.com/teebii
 
 h2. Overview
 
-Platform where aspiring students will be put in touch with music teachers via Google Hangout.
+We connect aspiring music students with teachers.  Helping them check availability through a calendar and/or messaging system and connecting them through Google+ Hangouts to start the lesson. Students have the ability to pick the best teacher for them, by searching for instrument, availability, price and experience level. 
+
+We plan to take a percentage of the teacher fee, which we'll integrate via a payment system on the site.
 
 
 h2. Required Environment / Minimum Setup

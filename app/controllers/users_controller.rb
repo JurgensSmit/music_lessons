@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
   Rails.logger.info("Client ID: #{ENV['OAUTH_CLIENT_ID']}")
-Rails.logger.info("Secrete key: #{ENV['OAUTH_CLIENT_SECRET']}")
+  Rails.logger.info("Secrete key: #{ENV['OAUTH_CLIENT_SECRET']}")
 
 
   def calendar

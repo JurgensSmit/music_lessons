@@ -19,6 +19,12 @@ body { padding-top: 60px; }
 	margin-right: auto;
 }
 
+.container-narrow {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 input, textarea, .uneditable-input {
 	width: 320px;
 }
@@ -105,5 +111,5 @@ textarea {
 }
 
 .font_color_yellow {
-  color:#debb27;
- } 
+	color:#debb27;
+} 
