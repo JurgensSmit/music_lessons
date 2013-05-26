@@ -17,10 +17,10 @@ class UsersController < ApplicationController
     if params[:tag]
       @user = User.tagged_with(params[:tag])
       # @events = @user.events
-      @events = Event.all
+      @events = @user.events
     else
       @user = User.find(params[:id])
-      @events = Event.all
+      @events = @user.events
     end
   end
   
@@ -44,4 +44,5 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+  
 end
