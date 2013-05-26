@@ -1,0 +1,19 @@
+<%= simple_form_for(@payment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :amount %>
+    <%= f.input :responseCode %>
+    <%= f.input :responseMessage %>
+    <%= f.input :xref %>
+    <%= f.input :amountReceived %>
+    <%= f.input :transactionID %>
+    <%= f.input :cardNumberMask %>
+    <%= f.input :cardTypeCode %>
+    <%= f.input :cardType %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
