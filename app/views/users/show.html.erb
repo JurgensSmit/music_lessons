@@ -4,7 +4,7 @@
 
 	<%= link_to "Book a lesson", new_user_event_path(@user), :class => "btn btn-success" %>
 	<%= link_to "Email me", inbox_path, :class => "btn btn-warning" %>
-	<%= link_to "Pay for a lesson", inbox_path, :class => "btn btn-primary" %>
+	<%= link_to "Pay for a lesson", new_payment_path, :class => "btn btn-primary" %>
 
 	<%= calendar @events do |event| %>
 	  <div><%= link_to event.name, user_event_path(@user) %></div>
