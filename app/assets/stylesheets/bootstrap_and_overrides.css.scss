@@ -14,7 +14,6 @@ body { padding-top: 60px; }
 }
 .search-pic {width:100px; height: auto;}
 
-
 .full-width {
 	min-width: 95%;
 	max-width: 95%;
@@ -28,6 +27,12 @@ body { padding-top: 60px; }
 
 .container {
 	max-width: 750px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container-narrow {
+	max-width: 600px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -118,5 +123,5 @@ textarea {
 }
 
 .font_color_yellow {
-  color:#debb27;
- } 
+	color:#debb27;
+} 

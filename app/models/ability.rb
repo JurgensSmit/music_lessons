@@ -13,6 +13,8 @@ class Ability
       can :read, User
       can :view, Message, :user_id => user.id
       can :view, Message, :sender_id => user.id
+    else
+      can :read, :all
     end
     # Define abilities for the passed in user here. For example:
     #

@@ -22,5 +22,9 @@ class User < ActiveRecord::Base
   acts_as_taggable_on :tag_list
 
   has_many :messages
+
+  validates :name, :email, :password, :password_confirmation, :user_type, :presence => true
+
+  validates :email, :uniqueness => true
   
 end
