@@ -7,7 +7,8 @@
 	<%= link_to "Pay for a lesson", inbox_path, :class => "btn btn-primary" %>
 
 	<%= calendar @events do |event| %>
-	  <div><%= link_to event.name, root_path %></div>
+	  <div><%= link_to event.name, user_event_path(@user) %></div>
 	  <div><%= event.start_time.strftime("at %I:%M%p") %></div>
 	<% end %>
 	<% end %>
+
