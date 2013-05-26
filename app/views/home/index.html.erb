@@ -1,14 +1,15 @@
-
-<%= form_tag teacher_list_path, :method => :get, :class => 'form-search search-bar' do %>
+  <div class="text-center">
+  	<h3>Find a music teacher</h3>
+    <%= form_tag teacher_list_path, :method => :get, :class => 'form-search search-bar' do %>
       <div class="input-append">
         <%= text_field_tag :search, params[:search], :class => 'search-query', :placeholder => 'Search here' %>
         <%= button_tag :class => "btn btn-primary" do %>
           Find musician <i class="icon-search icon-white"></i>
         <% end %>
       </div>
-<% end %>
+	<% end %>
+  </div>
 
 
-<% @users.each do |user| %>
-	<%= render 'users/profile', :user => user %>
-<% end %>
+
+

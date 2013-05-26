@@ -1,4 +1,3 @@
-
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -12,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525093140) do
+ActiveRecord::Schema.define(:version => 20130525110352) do
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.datetime "start_time"
+    t.boolean  "agreed"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
   create_table "messages", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -24,15 +33,6 @@ ActiveRecord::Schema.define(:version => 20130525093140) do
     t.string   "recipient_name"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-  end
-
-  create_table "events", :force => true do |t|
-    t.string   "name"
-    t.datetime "start_time"
-    t.boolean  "agreed"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
 
   create_table "roles", :force => true do |t|
