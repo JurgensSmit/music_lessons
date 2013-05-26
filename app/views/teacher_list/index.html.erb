@@ -4,8 +4,12 @@
 	<% end %>
 </h3>
 
+<% if user_signed_in? %>
+
+
+
 <h3>List of Music Teachers</h3>
-<% if params[:search] %>
+<% if params[:search] && params[:search] != "" %>
 	<% @users.each do |user| %>
 		<% if user.tag_list != [] && user.user_type == "Teacher" %>
 			<% user.tag_list.each do |tag| %>
@@ -16,15 +20,18 @@
 							<%= tag %>
 						<% end %>
 					</p>
-				<% break %>
+					<% break %>
+				<% else %>
+					<h4>No teachers match that tag</h4>
+					<% break %>
 				<% end %>
 			<% end %>
 		<% end %>
 	<% end %>
 <% else %>
 	<% @users.each do |user| %>
-		<h4><%= link_to user.name, user %></h4>
-			<% if user.tag_list != [] %>
+		<% if user.tag_list != [] && user.user_type == "Teacher" %>
+			<h4><%= link_to user.name, user %></h4>
 			<p>Tags:
 				<% user.tag_list.each do |tag| %>
 					<%= tag %>
@@ -33,3 +40,5 @@
 		<% end %>
 	<% end %>
 <% end %>
+<% end %>
+<%= link_to 'Back', root_path %>
