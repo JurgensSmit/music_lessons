@@ -8,8 +8,6 @@
       <li></i><%= link_to "<i class='icon-envelope-alt icon-large'></i>".html_safe, inbox_path, :alt => "Inbox", :title => "Inbox", :class => "nav_icon" %></li>
     <% end %>
   <% end %>
-  <li><%= link_to 'Learn', "#" %></li>
-  <li><%= link_to 'Teach', "#" %></li> 
   <% if user_signed_in? %>
     <li><%= link_to 'Edit account', edit_user_registration_path %></li>
     <% if current_user.has_role? :admin %>
