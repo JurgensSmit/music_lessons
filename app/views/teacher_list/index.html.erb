@@ -5,40 +5,27 @@
 </h3>
 
 <% if user_signed_in? %>
-
-
-
-<h3>List of Music Teachers</h3>
-<% if params[:search] && params[:search] != "" %>
-	<% @users.each do |user| %>
-		<% if user.tag_list != [] && user.user_type == "Teacher" %>
-			<% user.tag_list.each do |tag| %>
-				<% if params[:search].include?(tag)%>
-					<h4><%= link_to user.name, user %></h4>
-					<p>Tags:
-						<% user.tag_list.each do |tag| %>
-							<%= tag %>
-						<% end %>
-					</p>
-					<% break %>
-				<% else %>
-					<h4>No teachers match that tag</h4>
-					<% break %>
+	<h3>List of Music Teachers</h3>
+	<% if params[:search] && params[:search] != "" %>
+		<% @users.each do |user| %>
+			<% if user.tag_list != [] && user.user_type == "Teacher" %>
+				<% user.tag_list.each do |tag| %>
+					<% if params[:search].include?(tag)%>
+						<%= render 'users/profile', :user => user %>
+						<% break %>
+					<% else %>
+						<h4>No teachers match that tag</h4>
+						<% break %>
+					<% end %>
 				<% end %>
 			<% end %>
 		<% end %>
-	<% end %>
-<% else %>
-	<% @users.each do |user| %>
-		<% if user.tag_list != [] && user.user_type == "Teacher" %>
-			<h4><%= link_to user.name, user %></h4>
-			<p>Tags:
-				<% user.tag_list.each do |tag| %>
-					<%= tag %>
-				<% end %>
-			</p>
+	<% else %>
+		<% @users.each do |user| %>
+			<%= render 'users/profile', :user => user %>
 		<% end %>
 	<% end %>
 <% end %>
-<% end %>
+
 <%= link_to 'Back', root_path %>
+
